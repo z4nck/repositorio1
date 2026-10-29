@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#24170f">
+  <meta name="description" content="Forno Cósmico: pizzas artesanais, ingredientes selecionados e eventos inesquecíveis.">
+  <title>Forno Cósmico — Pizza artesanal & eventos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/script.js" defer></script>
+</head>
+<body>
+  <div class="top-note">🍕 Massa de fermentação lenta • Ingredientes de verdade • Feito no forno</div>
+  <header class="site-header">
+    <a class="brand" href="#inicio" aria-label="Forno Cósmico, início">
+      <span class="brand-mark">✦</span>
+      <span>FORNO <em>CÓSMICO</em><small>PIZZARIA ARTESANAL</small></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+    <nav id="mainNav">
+      <a href="#cardapio">Cardápio</a>
+      <a href="#eventos">Eventos</a>
+      <a href="#historia">Nossa história</a>
+      <a href="#github">Área GitHub</a>
+      <button class="button button-small" id="navOrder">Fazer pedido <span>↗</span></button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-shade"></div>
+      <div class="hero-content">
+        <p class="eyebrow"><span></span> DO NOSSO FORNO PARA SUA MESA</p>
+        <h1>Uma pizza.<br>Um universo <i>de sabor.</i></h1>
+        <p class="hero-copy">Massa artesanal, bordas douradas e ingredientes escolhidos a dedo. Reúna sua galáxia ao redor da mesa.</p>
+        <div class="hero-actions">
+          <a class="button" href="#cardapio">Explorar cardápio <span>↗</span></a>
+          <a class="text-link" href="#eventos">Planejar um evento <span>→</span></a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>48h</strong><span>de fermentação</span></div>
+          <div><strong>400°</strong><span>de paixão no forno</span></div>
+          <div><strong>100%</strong><span>feito com cuidado</span></div>
+        </div>
+      </div>
+      <div class="hero-stamp"><span>★ FEITO À MÃO ★</span><strong>DESDE<br>O PRIMEIRO<br>PEDAÇO</strong></div>
+    </section>
+
+    <section class="section menu-section" id="cardapio">
+      <div class="section-heading">
+        <div><p class="eyebrow">O CARDÁPIO</p><h2>Da nossa lenha<br>para o <i>seu coração.</i></h2></div>
+        <p>Receitas com personalidade, massa de longa fermentação e aquele sabor de comida feita sem pressa.</p>
+      </div>
+      <div class="filters" role="group" aria-label="Filtrar pizzas">
+        <button class="filter active" data-filter="Todas">Todas</button>
+        <button class="filter" data-filter="Clássicas">Clássicas</button>
+        <button class="filter" data-filter="Da casa">Da casa</button>
+        <button class="filter" data-filter="Vegetarianas">Vegetarianas</button>
+      </div>
+      <div class="pizza-grid" id="pizzaGrid" aria-live="polite"></div>
+    </section>
+
+    <section class="event-banner" id="eventos">
+      <div class="event-image" role="img" aria-label="Mesa de pizza artesanal em um ambiente acolhedor"></div>
+      <div class="event-copy">
+        <p class="eyebrow">BONS MOMENTOS MERECEM BOA PIZZA</p>
+        <h2>Sua festa, nossa<br><i>especialidade.</i></h2>
+        <p>Aniversários, encontros de equipe ou aquela reunião que merece virar história. A gente cuida do sabor para você curtir cada momento.</p>
+        <ul><li>✦ Aniversários e comemorações</li><li>✦ Confraternizações de equipe</li><li>✦ Encontros intimistas</li></ul>
+        <a class="button button-light" href="#reserva">Quero planejar meu evento <span>↗</span></a>
+      </div>
+    </section>
+
+    <section class="section booking-section" id="reserva">
+      <div class="section-heading">
+        <div><p class="eyebrow">VAMOS COMEMORAR?</p><h2>Conte pra gente<br>o seu <i>plano.</i></h2></div>
+        <p>Preencha os detalhes e enviaremos sua solicitação de reserva. A confirmação final depende do contato com a equipe.</p>
+      </div>
+      <form id="eventForm" class="event-form">
+        <label>Seu nome<input name="name" required maxlength="80" placeholder="Como podemos chamar você?"></label>
+        <label>E-mail<input name="email" type="email" required maxlength="120" placeholder="voce@email.com"></label>
+        <label>Tipo de evento<select name="type" required><option value="">Selecione uma opção</option><option>Aniversário</option><option>Confraternização</option><option>Encontro em família</option><option>Outro evento</option></select></label>
+        <label>Data desejada<input name="date" type="date" required id="eventDate"></label>
+        <label>Horário<select name="time" required><option value="">Selecione</option><option>12h–14h</option><option>15h–17h</option><option>18h–20h</option><option>20h–22h</option></select></label>
+        <label>Número de convidados<input name="guests" type="number" min="2" max="200" required placeholder="Ex.: 20"></label>
+        <label class="full">Detalhes adicionais<textarea name="details" rows="3" maxlength="800" placeholder="Conte um pouco sobre a ocasião (opcional)"></textarea></label>
+        <div class="full form-footer"><p>O envio registra sua solicitação neste navegador. Combine a confirmação diretamente com a pizzaria.</p><button class="button" type="submit">Enviar solicitação <span>↗</span></button></div>
+        <p class="form-message full" id="eventMessage" role="status"></p>
+      </form>
+      <div class="saved-events" id="savedEvents"></div>
+    </section>
+
+    <section class="story-section" id="historia">
+      <div class="story-copy"><p class="eyebrow">NOSSA FILOSOFIA</p><h2>O segredo está<br>no tempo. <i>E no fogo.</i></h2><p>Acreditamos na simplicidade bem-feita: farinha, água, fermento, bons ingredientes e paciência. Nosso forno transforma pequenos rituais em grandes lembranças.</p><a href="#cardapio" class="text-link">Descubra nossos sabores <span>→</span></a></div>
+      <div class="story-quote"><span class="quote-mark">“</span><blockquote>Comida boa aproxima pessoas. Pizza boa faz todo mundo ficar mais um pouco.</blockquote><span class="quote-line"></span><small>UM PEDAÇO DE CADA VEZ</small></div>
+    </section>
+
+    <section class="section github-section" id="github">
+      <div class="section-heading">
+        <div><p class="eyebrow">ÁREA DE DESENVOLVIMENTO</p><h2>Conecte seu<br><i>universo GitHub.</i></h2></div>
+        <p>Entre com sua conta para consultar repositórios, acompanhar commits e enviar uma alteração real a um repositório em que você tenha permissão de escrita.</p>
+      </div>
+      <div class="github-card">
+        <div class="github-intro"><div class="github-icon">GH</div><div><h3 id="githubTitle">Área do desenvolvedor</h3><p id="githubStatus">Entre com GitHub para habilitar as ferramentas.</p></div></div>
+        <div class="github-actions"><a class="button" id="githubLogin" href="/auth/github">Entrar com GitHub <span>↗</span></a><button class="button button-outline hidden" id="githubLogout">Sair da conta</button></div>
+        <p class="setup-note hidden" id="githubSetup">O login ainda não está configurado. Crie um arquivo <code>.env</code> seguindo o <code>.env.example</code> e configure a OAuth App do GitHub.</p>
+        <div class="repo-tools hidden" id="repoTools">
+          <label>Repositório autorizado<select id="repoSelect"><option value="">Carregando repositórios...</option></select></label>
+          <button class="button button-outline" id="loadCommits">Ver commits recentes</button>
+          <div class="commit-list" id="commitList" aria-live="polite"></div>
+          <details class="commit-editor">
+            <summary>+ Criar um commit real</summary>
+            <form id="commitForm">
+              <label>Branch<input name="branch" required maxlength="100" placeholder="main"></label>
+              <label>Caminho do arquivo<input name="path" required maxlength="300" value="docs/forno-cosmico-nota.md"></label>
+              <label>Mensagem do commit<input name="message" required minlength="5" maxlength="120" placeholder="docs: adiciona uma nota"></label>
+              <label>Conteúdo do arquivo<textarea name="content" required rows="5" maxlength="50000" placeholder="Escreva o conteúdo que será criado ou substituirá o arquivo..."></textarea></label>
+              <p class="setup-note">A ação modifica o repositório escolhido. Confira o nome, a branch e o caminho antes de enviar.</p>
+              <button class="button" type="submit">Criar commit <span>↗</span></button>
+              <p class="form-message" id="commitMessage" role="status"></p>
+            </form>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="cart-section" id="pedido">
+      <div class="cart-heading"><div><p class="eyebrow">SEU PEDIDO</p><h2>Uma caixa cheia<br>de <i>felicidade.</i></h2></div><button id="clearCart" class="text-link">Limpar pedido ↺</button></div>
+      <div id="cartItems" class="cart-items"><p class="empty-cart">Seu carrinho ainda está esperando a primeira pizza.</p></div>
+      <div class="cart-bottom"><div><span>Total do pedido</span><strong id="cartTotal">R$ 0,00</strong></div><button class="button" id="finishOrder">Finalizar pedido <span>↗</span></button></div>
+      <p class="form-message" id="orderMessage" role="status"></p>
+      <p class="cart-disclaimer">Demonstração acadêmica: o pedido é montado no navegador; não há pagamento nem envio automático à cozinha.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer"><a class="brand" href="#inicio"><span class="brand-mark">✦</span><span>FORNO <em>CÓSMICO</em><small>PIZZARIA ARTESANAL</small></span></a><p>Feito com tempo, fogo e carinho.</p><a href="#inicio">Voltar ao topo ↑</a><small>© <span id="year"></span> Forno Cósmico. Projeto demonstrativo.</small></footer>
+</body>
+</html>
